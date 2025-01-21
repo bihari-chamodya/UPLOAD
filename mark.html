@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Marks Management </title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="image/pcmlogo.jpg" />
+
+
+</head>
+
+<body>
+
+    <header>
+
+        <img src="image/logo white nonback.png" class="logo">
+        <h1>Precident's Collage Minuwangoda</h1>
+
+    </header>
+
+    <div class="container">
+        <h1>Student Marks Management</h1>
+
+        <!-- Form to Add Student Marks -->
+        <div class="form-container">
+            <h2>Add Student Marks</h2><br>
+            <form id="marksForm">
+                <label for="studentName">Student Name:</label>
+                <input type="text" id="studentName" required><br>
+
+                <label for="grade">Grade Level:</label>
+                <select id="grade" required>
+                    <option value="">Select Grade Level</option>
+                    <option value="6">Grade 6</option>
+                    <option value="7">Grade 7</option>
+                    <option value="8">Grade 8</option>
+                    <option value="9">Grade 9</option>
+                    <option value="10">Grade 10</option>
+                    <option value="11">Grade 11</option>
+                    <option value="12">Grade 12</option>
+                    <option value="13">Grade 13</option>
+                </select><br><br>
+
+                <!-- Select Term -->
+                <label for="term">Select Term:</label>
+                <select id="term" required>
+                    <option value="">Select Term</option>
+                    <option value="1">Term 1</option>
+                    <option value="2">Term 2</option>
+                    <option value="3">Term 3</option>
+                </select><br><br>
+
+                <!-- Subject Inputs -->
+                <label for="subject1">Subject 1 Marks:</label>
+                <input type="number" id="subject1" placeholder="Enter marks" required><br>
+
+                <label for="subject2">Subject 2 Marks:</label>
+                <input type="number" id="subject2" placeholder="Enter marks" required><br>
+
+                <label for="subject3">Subject 3 Marks:</label>
+                <input type="number" id="subject3" placeholder="Enter marks" required><br>
+
+                <button type="submit">Add Marks</button>
+            </form>
+        </div>
+
+        <!-- Student Marks Table -->
+        <div class="table-container">
+            <h2>All Student Marks</h2>
+            <table id="marksTable">
+                <thead>
+                    <tr>
+                        <th>Student Name</th>
+                        <th>Grade Level</th>
+                        <th>Term</th>
+                        <th>Subject 1 Marks</th>
+                        <th>Subject 2 Marks</th>
+                        <th>Subject 3 Marks</th>
+                        <th>Total Marks</th>
+                        <th>Average Marks</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</body>
+
+</html>

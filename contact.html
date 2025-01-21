@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="icon" href="image/pcmlogo.jpg" />
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+
+        header {
+            background-color: #810505;
+            color: white;
+            text-align: center;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 75px;
+            padding: 20px;
+
+        }
+
+        .logo {
+            width: 100px;
+            height: auto;
+            align-items: center;
+
+        }
+
+
+
+        main {
+            margin: 20px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-align: center;
+
+        }
+
+        /* Form Styling */
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+
+        form label {
+            display: block;
+            margin: 10px 0 5px;
+            font-size: 1.1em;
+            color: #333;
+        }
+
+        form input,
+        form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+
+        form button {
+            width: 100%;
+            padding: 12px;
+            background-color: #810505;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.2em;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #8b1d05;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+
+        <img src="image/logo white nonback.png" class="logo">
+        <h1>Precident's Collage Minuwangoda</h1>
+
+    </header><br>
+
+
+    <h2>Contact Us</h2>
+
+
+    <main>
+        <form id="contactForm">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Write your message here" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </main>
+
+
+
+
+
+
+
+    <script src="script1.js"></script>
+</body>
+
+</html>

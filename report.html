@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Report</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="image/pcmlogo.jpg" />
+
+
+
+
+</head>
+
+<body>
+
+    <header>
+        <img src="image/logo white nonback.png" class="logo">
+        <h1>Precident's Collage Minuwangoda</h1>
+    </header>
+
+
+    <div class="container">
+        <h1>Student Report Generator</h1>
+
+        <form id="studentForm">
+            <label for="studentName">Student Name:</label>
+            <input type="text" id="studentName" placeholder="Enter student name" required>
+
+            <label for="grade">Grade Level:</label>
+            <input type="text" id="grade" placeholder="Enter grade level" required>
+
+            <label for="term">Term:</label>
+            <select id="term" required>
+                <option value="" disabled selected>Select a term</option>
+                <option value="Term 1">Term 1</option>
+                <option value="Term 2">Term 2</option>
+                <option value="Term 3">Term 3</option>
+            </select>
+
+            <label for="subject1">Math Marks:</label>
+            <input type="number" id="subject1" placeholder="Enter marks for Math" required>
+
+            <label for="subject2">Science Marks:</label>
+            <input type="number" id="subject2" placeholder="Enter marks for Science" required>
+
+            <label for="subject3">English Marks:</label>
+            <input type="number" id="subject3" placeholder="Enter marks for English" required>
+
+            <button type="submit">Generate Report</button>
+        </form>
+
+        <div class="report-container" id="reportContainer">
+            <h1>Student Report</h1>
+            <div class="details">
+                <h2>Student Details</h2><br>
+                <p><strong>Name:</strong> <span id="reportName"></span></p><br>
+                <p><strong>Grade Level:</strong> <span id="reportGrade"></span></p><br>
+                <p><strong>Term:</strong> <span id="reportTerm"></span></p><br>
+            </div>
+            <div class="marks">
+                <h2>Marks</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Subject</th>
+                            <th>Marks</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Math</td>
+                            <td id="reportMath"></td>
+                        </tr>
+                        <tr>
+                            <td>Science</td>
+                            <td id="reportScience"></td>
+                        </tr>
+                        <tr>
+                            <td>English</td>
+                            <td id="reportEnglish"></td>
+                        </tr>
+                    </tbody>
+                </table><br>
+                <p><strong>Total Marks:</strong> <span id="reportTotal"></span></p><br>
+                <p><strong>Average Marks:</strong> <span id="reportAverage"></span></p><br>
+            </div>
+            <div class="print-button">
+                <button onclick="printReport()">Print Report</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('studentForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const studentName = document.getElementById('studentName').value;
+            const grade = document.getElementById('grade').value;
+            const term = document.getElementById('term').value;
+
+            const mathMarks = parseFloat(document.getElementById('subject1').value);
+            const scienceMarks = parseFloat(document.getElementById('subject2').value);
+            const englishMarks = parseFloat(document.getElementById('subject3').value);
+
+            if (!studentName || !grade || !term || isNaN(mathMarks) || isNaN(scienceMarks) || isNaN(englishMarks)) {
+                // SweetAlert for validation error
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Missing Information',
+                    text: 'Please fill out all fields correctly!',
+                });
+                return;
+            }
+
+            const totalMarks = mathMarks + scienceMarks + englishMarks;
+            const averageMarks = (totalMarks / 3).toFixed(2);
+
+
+            document.getElementById('reportName').textContent = studentName;
+            document.getElementById('reportGrade').textContent = grade;
+            document.getElementById('reportTerm').textContent = term;
+            document.getElementById('reportMath').textContent = mathMarks;
+            document.getElementById('reportScience').textContent = scienceMarks;
+            document.getElementById('reportEnglish').textContent = englishMarks;
+            document.getElementById('reportTotal').textContent = totalMarks;
+            document.getElementById('reportAverage').textContent = averageMarks;
+
+            // Show the report
+            document.getElementById('reportContainer').style.display = 'block';
+
+            // SweetAlert for success
+            Swal.fire({
+                icon: 'success',
+                title: 'Report Generated',
+                text: 'The student report has been generated successfully!',
+            });
+        });
+
+        // Function to print the report
+        function printReport() {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: 'Do you want to print the report?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#4CAF50',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, print it!',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    const reportContainer = document.getElementById('reportContainer');
+                    const originalContent = document.body.innerHTML;
+
+                    document.body.innerHTML = reportContainer.outerHTML;
+                    window.print();
+                    document.body.innerHTML = originalContent;
+
+                    window.location.reload();
+                }
+            });
+        }
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</body>
+
+</html>

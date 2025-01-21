@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Progress & Achievements</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="image/logo white nonback.png" />
+
+</head>
+
+<body>
+
+    <header>
+
+        <img src="image/logo white nonback.png" class="logo">
+        <h1>Precident's Collage Minuwangoda</h1>
+
+    </header>
+
+
+    <div class="container">
+
+        <h1>Student Progress & Achievements</h1>
+
+        <main>
+            <section class="student-form">
+                <h2>Add Student Progress</h2><br>
+                <form id="studentForm">
+                    <input type="text" id="name" placeholder="Student Name" required>
+                    <input type="text" id="subject" placeholder="Subject" required>
+                    <input type="text" id="grade" placeholder="Grade" required>
+                    <input type="text" id="achievement" placeholder="Achievement" required>
+                    <button type="submit">Add</button>
+                </form>
+            </section>
+            <section class="student-list">
+                <h2>Student Records</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Subject</th>
+                            <th>Grade</th>
+                            <th>Achievement</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="studentTableBody"></tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+    <script src="scrpt2.js"></script>
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</body>
+
+</html>
